@@ -15,13 +15,13 @@ expected = 90
 
 main :: IO ()
 main = do
-    file <- tix
-    let arguments = ["report", file]
+  file <- tix
+  let arguments = ["report", file]
 
-    output <- readProcess "hpc" arguments ""
-    if average (match output) >= (expected :: Float)
-        then exitSuccess
-        else putStr output >> exitFailure
+  output <- readProcess "hpc" arguments ""
+  if average (match output) >= (expected :: Float)
+    then exitSuccess
+    else putStr output >> exitFailure
 
 match :: String -> [Int]
 match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
@@ -32,8 +32,8 @@ match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
 -- See <https://github.com/tfausak/haskeleton/issues/31> for details.
 tix :: IO FilePath
 tix = do
-    let newFile = "tests.tix"
-        oldFile = "dist/hpc/tix/tests/tests.tix"
-    newFileExists <- doesFileExist newFile
-    let file = if newFileExists then newFile else oldFile
-    return file
+  let newFile = "tests.tix"
+      oldFile = "dist/hpc/tix/tests/tests.tix"
+  newFileExists <- doesFileExist newFile
+  let file = if newFileExists then newFile else oldFile
+  return file

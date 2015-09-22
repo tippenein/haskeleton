@@ -5,13 +5,13 @@ import System.Exit (exitFailure, exitSuccess)
 
 arguments :: [String]
 arguments =
-    [ "benchmark"
-    , "executable"
-    , "library"
-    , "test-suite"
-    ]
+  [ "benchmark"
+  , "executable"
+  , "library"
+  , "test-suite"
+  ]
 
 main :: IO ()
 main = do
-    hints <- hlint arguments
-    if null hints then exitSuccess else exitFailure
+  hints <- hlint arguments
+  if null hints then exitSuccess else exitFailure

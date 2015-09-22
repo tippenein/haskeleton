@@ -8,8 +8,8 @@ import Text.Regex (matchRegex, mkRegex)
 
 arguments :: [String]
 arguments =
-    [ "haddock"
-    ]
+  [ "haddock"
+  ]
 
 average :: (Fractional a, Real b) => [b] -> a
 average xs = realToFrac (sum xs) / genericLength xs
@@ -19,10 +19,10 @@ expected = 90
 
 main :: IO ()
 main = do
-    output <- readProcess "cabal" arguments ""
-    if average (match output) >= (expected :: Float)
-        then exitSuccess
-        else putStr output >> exitFailure
+  output <- readProcess "cabal" arguments ""
+  if average (match output) >= (expected :: Float)
+    then exitSuccess
+    else putStr output >> exitFailure
 
 match :: String -> [Int]
 match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
