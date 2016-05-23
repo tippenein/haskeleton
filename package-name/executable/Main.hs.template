@@ -1,6 +1,8 @@
 module Main (main) where
 
 import qualified ${moduleName}
+-- import System.Remote.Monitoring
 
 main :: IO ()
 main = ${moduleName}.main
+  -- ekg <- forkServer "localhost" 8000

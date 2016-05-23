@@ -33,6 +33,9 @@ executable ${packageName}
   build-depends:
       base -any
     , ${packageName} -any
+  if flag(ekg)
+    build-depends:
+      ekg >= 0.4 && < 0.5
   default-language: Haskell2010
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -fno-warn-missing-signatures
 
@@ -50,3 +53,8 @@ test-suite tests
   other-modules:
       ${moduleName}Spec
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N -fno-warn-missing-signatures
+
+flag ekg
+  manual: True
+  default: False
+  description: Compile with ekg monitoring.
