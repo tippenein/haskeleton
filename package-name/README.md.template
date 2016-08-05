@@ -1,13 +1,19 @@
 ${packageName}
 -----
-[![Build Status](https://magnum.travis-ci.com/tippenein/${packageName}.svg?token=oEd198sTq2JwZqn9DHTF&branch=master)](https://magnum.travis-ci.com/tippenein/${packageName})
 
+[![Build Status](https://circleci.com/gh/tippenein/${packageName}.svg?style=shield&circle-token=<TOKEN HERE>)](https://circleci.com/gh/tippenein/${packageName})
 
-# install to ~/.local/bin
-stack install
-
+``` sh
 # Configure & build the package.
 stack build
 
 # Test package.
 stack test
+
+# install to ~/.local/bin
+stack install
+
+
+# Start REPL.
+stack repl
+```
